@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Login } from './Login'
 import { Signup } from './Signup'
+
 
 const INITIAL_USER = [
     {
@@ -8,24 +9,39 @@ const INITIAL_USER = [
         lastname: 'Augsburger',
         email: 'test@test.com',
         password: '1234',
-        userType: 'student'
     }
 ]
 
 export const Section = () => {
 
     const [showLogin, setshowLogin] = useState(true)
-    const [userRegistered, setUserRegistered] = useState(INITIAL_USER)
+    const [addUser, setAddUser] = useState(INITIAL_USER)
+
+
+    const saveUser = (user) => {
+        setAddUser(old => [...old, user])
+    }
 
 
     const handleForm = () => {
         setshowLogin(!showLogin)
     }
 
+    useEffect(() => {
+        if (localStorage.getItem('users')){
+            setAddUser(JSON.parse(localStorage.getItem('users')))
+        }
+    }, [])
+
+
+    useEffect(() => {
+        localStorage.setItem('users', JSON.stringify(addUser))
+    }, [addUser])
+
     return (
-        <section className="mx-auto w-[927px] bg-white rounded-[10px] shadow-lg px-20 py-20">
+        <section className="mx-auto px-20 py-20 w-[927px] bg-white rounded-[10px] shadow-lg">
             {
-                showLogin ? <Login handleForm={handleForm} /> : <Signup handleForm={handleForm} />
+                showLogin ? <Login handleForm={handleForm} /> : <Signup handleForm={handleForm} saveUser={saveUser} />
             }
         </section>
     )

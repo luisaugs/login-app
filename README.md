@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Bootcamp Devlights
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## This project was creatd with React + Tailwindcss.
 
-## Available Scripts
+``` 
+npm install
+npm run start
+```
+---
 
-In the project directory, you can run:
+## Descripción
 
-### `npm start`
+La aplicación debera contar con los siguientes puntos:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Login
+La pantalla de Login debera seguir el estilo que se muestra en [Figma](https://www.figma.com/community/file/1098558679676647050), con su correspondiente formulario, al que le van a tener que agregar un campo adicional. Este campo adicional tiene que tener un label que diga "Tipo", y ser un selector que contenga 2 opciones (Alumno, Profesor) y guardarlo en su propio state. Cada alumno debe definir cual sera el email y password que tendra "Exito". En caso de ingresar un email y password incorrecto, mostrar un mensaje de error, arriba del formulario.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### Exito
+La pantalla de Exito debera ser diseniada por cada alumno, a gusto y piaciere. (Sacar la relucir la imaginacion jeje). En la pantalla de Exito, se debera mostrar el email, y el tipo seleccionado previamente.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+###  Registro (Complementario, no requerido)
+Agregar un Link en la parte de abajo del formulario de Login, que diga "Registrarse", siguiendo el estilo del texto forgot password?. Al Link "Registrarse", agregarle un evento "onClick", y agregarle la logica para mostrar el formulario de "Registro".
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+El formulario de "Registro", debera contar con los siguientes campos:
+- Nombre
+- Apellido
+- Email
+- Password
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Y un boton que tenga el texto "Registrarme" con el evento onClick.
+En la funcion onClick, mostrar por consola (console.log(...)), los valores ingresados.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

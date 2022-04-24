@@ -39,7 +39,7 @@ export const Section = () => {
     }, [addUser])
 
     return (
-        <section className="mx-auto px-20 py-20 w-[927px] bg-white rounded-[10px] shadow-lg">
+        <section className="mx-auto px-20 py-20 w-[927px] bg-white rounded-[10px]">
             {
                 showLogin ? <Login handleForm={handleForm} /> : <Signup handleForm={handleForm} saveUser={saveUser} />
             }

@@ -25,36 +25,37 @@ export const Login = ({ handleForm }) => {
         setUserType(e.target.value)
     }
 
-    const logUser = (e, email, password, userType) => {
+    const logUser = (e, email, password, userSelected) => {
 
         e.preventDefault()
 
         const userArray = JSON.parse(localStorage.getItem('users'))
         const ver = userArray.find(user => user.email === email)
         if (!ver) {
-            setError('El usuario no existe!')
+            setError('User does not exist. Please, sign up.')
             return
         }
 
         if (ver.password !== password) {
-            setError('La contraseñas no coinciden')
+            setError('Incorrect password.')
             return
         }
 
-        if (ver.userType !== userType) {
-            setError('Los tipos no son iguales')
+        setUserType(userSelected)
+
+        if(!userType){
+            setError('Please, select an option.')
             return
         }
 
         setError('')
         setUserIslogged(true)
-
     }
 
     const handleUser = () => {
         setUserIslogged(!userIsLogged)
     }
-    
+
     return (
         <>
             <Subtitle text="Please complete the form with your data" />
@@ -63,9 +64,9 @@ export const Login = ({ handleForm }) => {
             }
 
             <form className="w-[750px]">
-                <label className="block text-xl text-[#ccc]" htmlFor="userEmail">Email address</label>
+                <label className="block text-xl text-[#ccc] select-none" htmlFor="userEmail">Email address</label>
                 <input
-                    className="block text-xl p-2 w-full border border-[#ccc] rounded-[10px] mt-2 mb-4 text-[#333]"
+                    className="block text-xl p-2 w-full border border-[#ccc] rounded-md mt-2 mb-4 text-[#333]"
                     type="email"
                     placeholder="Enter your email address..."
                     id="userEmail"
@@ -73,19 +74,19 @@ export const Login = ({ handleForm }) => {
                     autoFocus
                     onChange={handleEmail}
                 />
-                <label className="block text-xl text-[#ccc]" htmlFor="userPassword">Password</label>
+                <label className="block text-xl text-[#ccc] select-none" htmlFor="userPassword">Password</label>
                 <input
-                    className="block text-xl p-2 w-full border border-[#ccc] rounded-[10px] mt-2 mb-4 text-[#333]"
+                    className="block text-xl p-2 w-full border border-[#ccc] rounded-md mt-2 mb-4 text-[#333]"
                     type="password"
                     placeholder="Enter your pasword..."
                     id="userPassword"
                     required
                     onChange={handlePassword}
                 />
-                <label className="block text-xl text-[#ccc]" htmlFor="optionUser">Category</label>
+                <label className="block text-xl text-[#ccc] select-none" htmlFor="optionUser">Category</label>
                 <select
                     id="optionUser"
-                    className="block text-xl p-2 mt-2 mb-5 w-full border border-[#ccc] rounded-[10px] text-[#333]"
+                    className="block text-xl p-2 mt-2 mb-5 w-full border border-[#ccc] rounded-md text-[#333]"
                     onChange={handleUserType}
                 >
                     <option value="" hidden>Select option</option>
@@ -101,7 +102,12 @@ export const Login = ({ handleForm }) => {
             </form>
 
             {
-                userIsLogged && <UserLogged handleUser={handleUser}/>
+                userIsLogged &&
+                <UserLogged
+                    handleUser={handleUser}
+                    email={email}
+                    selection={userType}
+                />
             }
         </>
     )
